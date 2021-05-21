@@ -9,7 +9,9 @@
     "license": "AGPL-3",
     "website": "https://github.com/akretion/phs-addons",
     "depends": [],
-    "data": [],
+    "data": [
+        "views/res_partner_view.xml",
+    ],
     "installable": True,
     "application": False,
 }

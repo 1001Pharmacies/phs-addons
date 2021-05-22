@@ -1,4 +1,5 @@
 from odoo.tests.common import TransactionCase
+from odoo.tools.safe_eval import safe_eval
 
 
 class TestStockPickingBatchRule(TransactionCase):
@@ -41,4 +42,11 @@ class TestStockPickingBatchRule(TransactionCase):
             }
         )
         batch = rule.batch_creation()
-        self.assertEqual(len(batch), 4)
+        pre_filtered_domain = [
+            ("picking_type_id", "=", rule.picking_type_id.id),
+            ("state", "=", "assigned"),
+        ]
+        pickings = self.env["stock.picking"].search(
+            pre_filtered_domain + safe_eval(rule.filter_id.domain)
+        )
+        self.assertEqual(len(batch), int(len(pickings) / 2))

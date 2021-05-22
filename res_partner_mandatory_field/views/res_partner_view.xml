@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_partner_form_view" model="ir.ui.view">
+        <field name="name">res.partner.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="street" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="ref" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="city" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="state_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="zip" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="vat" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="lang" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+            <field name="country_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
